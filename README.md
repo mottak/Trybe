@@ -1,3 +1,1 @@
-# bloco5
-# bloco5
-# bloco5
+Repositorio destinado aos exercicios da desenvolvidos na trybe
