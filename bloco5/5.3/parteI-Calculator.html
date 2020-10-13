@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset=utf-8 />
+<title>Calculator</title>
+</head>
+<body>
+
+  <label>Square this number:
+    <input type="number" id="square-input" size="2">
+  </label>
+  <button id="square-button">Calculate</button>
+  <br><br>
+  
+  <label>Half this number:
+    <input type="number" id="half-input" size="2">
+  </label>
+  <button id="half-button">Calculate</button>
+  <br><br>
+  
+  <label>
+    Fraction:
+    <input type="number" id="percent1-input" size="2">
+  </label>
+  <label>
+    Whole:
+    <input type="number" id="percent2-input" size="2">
+  </label>
+  <button id="percent-button">Calculate</button>
+  <br><br>
+  
+  <label>Calculate area of circle with radius:
+    <input type="number" id="area-input" size="2">
+  </label>
+  <button id="area-button">Calculate</button> 
+  <br><br>
+  <div id="solution"></div>
+
+  <script>
+    function squareNumber(number) {
+      const square = Math.pow(number, 2);
+      return square;
+    }
+    function half(number){
+      const halfNumber = number / 2;
+      return halfNumber;
+    }
+    function percent(number1, number2) {
+      // what percent the first number represents of the second number
+      const percent1 = (number1/number2) * 100;
+      return percent1;
+
+    }
+    //A= pi*r²
+    function circleArea(radius) {
+      const area = 3.14 * (Math.pow(radius, 2));
+      return area;
+    }
+    const squareButton = document.getElementById('square-button');
+    squareButton.addEventListener('click', function() {
+      const number = document.getElementById('square-input').value;
+      document.getElementById('solution').innerHTML = squareNumber(number);
+    });
+
+    const halfButton = document.getElementById('half-button');
+    halfButton.addEventListener('click', function() {
+      const number = document.getElementById('half-input').value;
+      document.getElementById('solution').innerHTML = half(number);
+    });
+
+    const percentButton = document.getElementById('percent-button');
+    percentButton.addEventListener('click', function() {
+      const number1 = document.getElementById('percent1-input').value;
+      const number2 = document.getElementById('percent2-input').value;
+      document.getElementById('solution').innerHTML = percent(number1, number2);
+    });
+
+    const areaButton = document.getElementById('area-button');
+    areaButton.addEventListener('click', function () {
+      const number = document.getElementById('area-input').value;
+      document.getElementById('solution').innerHTML = circleArea(number);
+    });
+   
+  </script>
+</body>
+</html>
+<!-- Add a script tag, and add the functions from the calculator exercise
+For each operation, create an event listener for the button, and when it's clicked, find the value of the appropriate input and show the result of the calculation in the solution div.
+Bonus: respond to key presses so that the user doesn't have to click the button. -->
