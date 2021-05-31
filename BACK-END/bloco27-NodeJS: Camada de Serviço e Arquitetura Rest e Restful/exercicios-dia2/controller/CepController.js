@@ -3,7 +3,7 @@ const cepService = require('../service/CepService');
 
 const cepRouter = new Router();
 
-appRouter.get('/', async(req, res) => {
+cepRouter.get('/', async(req, res) => {
   const { cep } = req.query;
   const cepInfo = await cepService.getCepInfo(cep);
   if(cepInfo.isError){

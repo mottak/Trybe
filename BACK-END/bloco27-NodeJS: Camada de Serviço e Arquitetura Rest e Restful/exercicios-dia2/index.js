@@ -7,4 +7,4 @@ const PORT = 3000;
 
 app.use('/lookup', cepController);
 
-app.listen(PORT, ()=>{` escutando porta ${PORT}`});
+app.listen(PORT, ()=>{console.log(` escutando porta ${PORT}`)});

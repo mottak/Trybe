@@ -9,8 +9,13 @@ const APIrequest = async () => {
 };
 
 const cepValidation = (cep) => {
-  const isCepValid = cep.match("/^\d{5}-?\d{3}$/");
-  return isCepValid;
+  console.log(cep)
+  const regex = /^\d{5}-?\d{3}$/;
+  const isCepValid = cep.test(/^\d{5}-?\d{3}$/);
+  console.log(isCepValid)
+  if(cep && isCepValid){
+    return isCepValid;
+  }
 }
 
 const getCepInfo = async (cep) => {
@@ -18,6 +23,7 @@ const getCepInfo = async (cep) => {
   let cepInfo = '';
   const error = { isError: false}
   const validCep = cepValidation(cep);
+  
   if(!validCep) {
     error.isError = true;
     error.message = 'CEP invalido';
@@ -35,6 +41,7 @@ const getCepInfo = async (cep) => {
     return cepInfo;
   }
 };
+4
 
 module.exports = {
   getCepInfo,
